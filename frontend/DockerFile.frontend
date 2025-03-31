@@ -1,0 +1,27 @@
+# Stage 1: Build the Next.js frontend
+FROM node:18-alpine AS builder
+WORKDIR /app
+
+# Install dependencies
+COPY package.json package-lock.json ./
+RUN npm install --production
+
+# Copy all files and build
+COPY . .
+RUN npm run build  # ✅ Removed `npm run export`
+
+# Stage 2: Serve using Nginx
+FROM nginx:alpine
+WORKDIR /usr/share/nginx/html
+
+# Copy built static files
+COPY --from=builder /app/out /usr/share/nginx/html  
+
+# Copy custom Nginx configuration
+COPY nginx.conf /etc/nginx/conf.d/default.conf  
+
+# Expose port
+EXPOSE 80
+
+# Start Nginx
+CMD ["nginx", "-g", "daemon off;"]

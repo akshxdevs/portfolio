@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  backend:
+    image: akshxdock/portfolio-backend:latest
+    container_name: portfolio-backend
+    ports:
+      - "5000:5000"
+    environment:
+      - POSTGRES_HOST=postgres
+      - POSTGRES_DB=portfolio_db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=your_password_here
+    depends_on:
+      - postgres
+    volumes:
+      - backend_data:/var/lib/postgresql/data
+    restart: always
+
+  frontend:
+    image: akshxdock/portfolio-frontend:latest
+    container_name: portfolio-frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    restart: always
+
+  postgres:
+    image: postgres:13-alpine
+    container_name: portfolio-postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=your_password_here
+      - POSTGRES_DB=portfolio_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: always
+
+volumes:
+  backend_data:
+  postgres_data:
