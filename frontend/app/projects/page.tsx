@@ -41,7 +41,7 @@ export default function Projects() {
       <div className="w-full max-w-4xl text-left">
         <h1 className="text-4xl font-extrabold">Projects</h1>
         <h2 className="text-xl md:text-2xl font-semibold text-gray-400 mt-2">
-          Some projects I've built and contributed to.
+          Some projects I&apos;ve built and contributed to.
         </h2>
       </div>
 
