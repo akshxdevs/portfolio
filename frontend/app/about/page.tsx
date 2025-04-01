@@ -26,7 +26,7 @@ export default function About() {
     }, []);
 
     return <div className="min-h-screen overflow-hidden">
-        <div className={`${theme === "dark" ? "text-white " : "bg-white text-black"}`}>
+        <div className={`${theme === "dark" ? "text-white bg-black" : "bg-white text-black"}`}>
             <AppBar />
             <div className="flex flex-col items-center px-4 sm:px-8 lg:px-16">
                 <div className="flex flex-col md:flex-row justify-between items-center w-full max-w-4xl border border-gray-900 rounded-lg p-6 md:p-10">
