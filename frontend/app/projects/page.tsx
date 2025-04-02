@@ -22,7 +22,7 @@ export default function Projects() {
 
   const getAllProjects = async () => {
     try {
-      const res = await axios.get(`${BACKEND_URL}`);
+      const res = await axios.get(`${BACKEND_URL}/about/getallprojects`);
       if (res) {
         setProjects(res.data.projects);
       }
