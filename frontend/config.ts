@@ -1,1 +1,1 @@
-export const BACKEND_URL = "https://206.189.203.172:5000";
+export const BACKEND_URL = "https://api.akshxdevs.com";
