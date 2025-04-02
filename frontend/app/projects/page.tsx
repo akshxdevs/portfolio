@@ -38,7 +38,7 @@ export default function Projects() {
   return (
     <div className={`min-h-screen flex flex-col items-center 1 ${theme == "dark" ? "bg-black text-white" : "bg-white text-black"}`}>
       <AppBar/>
-      <div className="w-full max-w-4xl text-left">
+      <div className="w-full max-w-2xl px-8 android:max-w-4xl text-left">
         <h1 className="text-4xl font-extrabold">Projects</h1>
         <h2 className="text-xl md:text-2xl font-semibold text-gray-400 mt-2">
           Some projects I&apos;ve built and contributed to.
