@@ -1,5 +1,4 @@
 "use client";
-
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useRecoilState } from "recoil";
@@ -20,7 +19,7 @@ export const AppBar = () => {
                     akshxdevs
                 </button>
                 <div className="hidden md:flex gap-6 text-lg">
-                    <button className="max-w-full" onClick={() => router.push("/blogs")}>blogs</button>
+                    <button className="max-w-full" onClick={() => (window.location.href = "https://akshxdevs.substack.com/")}>blogs</button>
                     <button className="max-w-full" onClick={() => router.push("/projects")}>projects</button>
                     <button className="max-w-full" onClick={toggleTheme}>
                         {theme === "dark" ? 
@@ -48,7 +47,7 @@ export const AppBar = () => {
             </div>
             {menuOpen && (
                 <div className="md:hidden flex flex-col items-start gap-4 mt-4 text-lg w-full">
-                    <button className="max-w-full" onClick={() => router.push("/blogs")}>blogs</button>
+                    <button className="max-w-full" onClick={() => router.push("/https://akshxdevs.substack.com")}>blogs</button>
                     <button className="max-w-full" onClick={() => router.push("/projects")}>projects</button>
                     <button className="max-w-full" onClick={toggleTheme}>
                         {theme === "dark" ? 

@@ -10,7 +10,6 @@ import { themeToggleState } from "../recoil/atom";
 
 export default function About() {
     const [showContactModel, setShowContactModel] = useState(false);
-    const [showBuyMeCoffeModel, setShowBuyMeCoffeModel] = useState(false);
     const theme = useRecoilValue(themeToggleState);
     const modelRef = useRef<HTMLDivElement>(null);
 
@@ -18,7 +17,6 @@ export default function About() {
         const handleOutsideClick = (e:MouseEvent) => {
             if (modelRef.current && !modelRef.current.contains(e.target as Node)) {
                 setShowContactModel(false);
-                setShowBuyMeCoffeModel(false);
             }
         };
         window.addEventListener("mousedown", handleOutsideClick);
@@ -52,7 +50,7 @@ export default function About() {
                         </p>
                     </div>
                     <div className="flex flex-col items-center mt-5 md:mt-0 w-full md:w-[40%]">
-                        <Image src="/WhatsApp Image 2025-03-27 at 11.15.46.jpeg" alt="Profile Picture" width={200} height={200} className="w-40 h-40 md:w-48 md:h-48 rounded-full object-cover border-4 border-gray-800 shadow-lg" />
+                        <Image src="/pfp.jpeg" alt="Profile Picture" width={200} height={200} className="w-40 h-40 md:w-48 md:h-48 rounded-full object-cover border-4 border-gray-800 shadow-lg" />
                         <p className={`${theme === "dark" ? "text-gray-300 font-light" : "text-gray-700 font-light"} text-sm text-center p-2`}>Builder. Innovator. Explorer.</p>
                     </div>
                 </div>
@@ -63,7 +61,6 @@ export default function About() {
                     </h1>
                     <div className="flex flex-col md:flex-row gap-3 justify-center">
                         <button className={`${theme == "dark" ? "p-3 my-2 border border-gray-700 text-slate-300 rounded-md hover:bg-gray-800 font-bold transition-all" : "p-3 my-2 border border-gray-700 text-gray-700 rounded-md hover:bg-gray-800 hover:text-slate-50 font-semibold transition-all"}`} onClick={() => setShowContactModel(true)}>Contact me</button>
-                        <button className={`${theme == "dark" ? "p-3 my-2 border border-gray-700 text-slate-300 rounded-md hover:bg-gray-800 font-bold transition-all" : "p-3 my-2 border border-gray-700 text-gray-700 rounded-md hover:bg-gray-800 hover:text-slate-50 font-semibold transition-all"}`} onClick={() => setShowBuyMeCoffeModel(true)}>Buy me! ☕</button>
                     </div>
                 </div>
                 <div className="pb-16 w-full px-4 text-center">
@@ -97,7 +94,7 @@ export default function About() {
                         <div 
                             ref={modelRef} 
                             className="w-[90%] sm:max-w-md bg-white rounded-lg shadow-lg py-10 px-6 relative"
-                            onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside the modal
+                            onClick={(e) => e.stopPropagation()} 
                         >
                             <div className="flex flex-col items-center w-full">
                                 <h1 className="text-black font-bold text-xl text-center">
@@ -130,34 +127,6 @@ export default function About() {
                                         Send Message ✉️
                                     </button>
                                 </form>
-                            </div>
-                        </div>
-                    </div>
-                )}
-
-                {showBuyMeCoffeModel && (
-                    <div 
-                        className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center h-screen"
-                        onClick={() => setShowBuyMeCoffeModel(false)}
-                    >
-                        <div 
-                            ref={modelRef} 
-                            className="w-[90%] sm:max-w-md bg-white rounded-lg shadow-lg p-10 relative"
-                            onClick={(e) => e.stopPropagation()} // Prevent modal close on inner clicks
-                        >
-                            <div className="flex flex-col items-center w-full">
-                                <h1 className="text-black font-bold text-xl text-center">
-                                    Support my work & keep the ideas brewing! ☕✨
-                                </h1>
-                                <div className="pt-5">
-                                <Image 
-                                        src="/WhatsApp Image 2025-03-28 at 12.18.37.jpeg" 
-                                        alt="QR-Code" 
-                                        width={320} // Equivalent to w-80 (80 * 4 = 320px)
-                                        height={320} // Equivalent to h-80 (80 * 4 = 320px)
-                                        className="rounded-lg shadow-md object-contain"
-                                    />
-                                </div>
                             </div>
                         </div>
                     </div>

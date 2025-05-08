@@ -37,9 +37,9 @@ export const SocialBar = () => {
                     <Image width={28} height={28} src="https://img.icons8.com/fluency/48/linkedin.png" alt="linkedin"/>
                 </button>
 
-                {/* Instagram */}
-                <button onClick={() => router.push("https://www.instagram.com/akshxdevs")}>
-                    <Image width={28} height={28} src="https://img.icons8.com/3d-fluency/94/instagram-logo.png" alt="instagram"/>
+                {/* Substack */}
+                <button onClick={() => router.push("https://akshxdevs.substack.com/")}>
+                    <Image width={28} height={28} src="https://img.icons8.com/doodle/48/substack.png" alt="substack"/>
                 </button>
 
                 {/* GitHub */}
